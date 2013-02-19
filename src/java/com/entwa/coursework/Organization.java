@@ -5,10 +5,12 @@
 package com.entwa.coursework;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -26,7 +28,16 @@ public class Organization implements Serializable {
     private String contactName;
     private String phoneNumber;
     private String email;
-    
+    @OneToMany(mappedBy = "organization")
+    private Collection<Project> projects;
+
+    public Collection<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(Collection<Project> projects) {
+        this.projects = projects;
+    }
     public Long getId() {
         return id;
     }

@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -25,6 +26,9 @@ public class Project implements Serializable {
     private String academicQuestions;
     private String deliverables;
     private String difficulty;
+    @ManyToOne
+    private Organization organization;
+    
     //Add date
     public Long getId() {
         return id;
@@ -72,6 +76,14 @@ public class Project implements Serializable {
 
     public void setDifficulty(String difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public Organization getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Organization organization) {
+        this.organization = organization;
     }
     
     @Override
