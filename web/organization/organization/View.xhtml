@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOrganizationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewOrganizationLabel_id}"/>
+                    <h:outputText value="#{organizationController.selected.id}" title="#{bundle.ViewOrganizationTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewOrganizationLabel_name}"/>
+                    <h:outputText value="#{organizationController.selected.name}" title="#{bundle.ViewOrganizationTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewOrganizationLabel_address}"/>
+                    <h:outputText value="#{organizationController.selected.address}" title="#{bundle.ViewOrganizationTitle_address}"/>
+                    <h:outputText value="#{bundle.ViewOrganizationLabel_contactName}"/>
+                    <h:outputText value="#{organizationController.selected.contactName}" title="#{bundle.ViewOrganizationTitle_contactName}"/>
+                    <h:outputText value="#{bundle.ViewOrganizationLabel_phoneNumber}"/>
+                    <h:outputText value="#{organizationController.selected.phoneNumber}" title="#{bundle.ViewOrganizationTitle_phoneNumber}"/>
+                    <h:outputText value="#{bundle.ViewOrganizationLabel_email}"/>
+                    <h:outputText value="#{organizationController.selected.email}" title="#{bundle.ViewOrganizationTitle_email}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{organizationController.destroyAndView}" value="#{bundle.ViewOrganizationDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewOrganizationEditLink}"/>
+                <br />
+                <h:commandLink action="#{organizationController.prepareCreate}" value="#{bundle.ViewOrganizationCreateLink}" />
+                <br />
+                <h:commandLink action="#{organizationController.prepareList}" value="#{bundle.ViewOrganizationShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewOrganizationIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
